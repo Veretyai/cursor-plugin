@@ -1,11 +1,14 @@
 # Verety for Cursor
 
-Verify a business without leaving Cursor. The plugin connects Cursor's agent to
-Verety's MCP server, which searches official business registries, returns the
-registry record, and runs a full KYB investigation with risk and compliance
-scores.
+KYB and counterparty due diligence inside Cursor. The plugin connects
+Cursor's agent to Verety's MCP server, which searches official business
+registries, returns the registry record, and runs a full investigation —
+registry, domain, sanctions and media checks — into findings with risk and
+compliance scores.
 
-## Tools
+## What you get
+
+**MCP tools**
 
 | Tool | What it does |
 |---|---|
@@ -13,14 +16,22 @@ scores.
 | `get_entity` | The full registry record for one company. |
 | `investigate` | Registry and domain checks, then agent-driven exploration of additional sources. Returns findings, summary, risk and compliance scores. |
 
-The flow is search → you pick the candidate → investigate. The agent never
-guesses which company you meant.
+**Skills** — `verify-company` (the search → pick → investigate flow),
+`read-kyb-report` (what the scores and findings mean, what needs a human),
+`registry-lookup` (the raw record, by country).
+
+**Commands** — `/verify` (end to end), `/screen` (registry record only, no
+check spent), `/onboarding-checklist` (turn a report into a ticket).
+
+**Rule** — `verety-accuracy`: confirm the entity before investigating, one
+investigation per entity, sources only, never declare a counterparty
+approved.
 
 ## Install
 
-Install the plugin from the Cursor Marketplace. On first use Cursor opens
-Verety in your browser: sign in (or create a free account) and approve the
-connection. No key to copy.
+Install from the Cursor Marketplace. On first use Cursor opens Verety in
+your browser: sign in (or create a free account) and approve the connection.
+No key to copy.
 
 Prefer a key? Create one at Account → API keys and add the server by hand in
 Settings → MCP:
@@ -38,15 +49,18 @@ Settings → MCP:
 
 ## Try it
 
-- "Find Grupo Bimbo in Mexico."
-- "Investigate the first one."
-- "Show me the registry record."
+- `/verify Grupo Bimbo, Mexico`
+- "Find Petrobras in Brazil and show me the registry record."
+- "Investigate the first one, we are onboarding them as a supplier."
+- `/onboarding-checklist`
 
-## Allowance
+## Coverage and allowance
 
-Each `investigate` call uses one of your plan's monthly checks (the Free plan
-includes 5). Search and record lookups are free. When the allowance is used
-up the tool returns `quota_exceeded` with an upgrade link.
+Brazil (CNPJ), Mexico (DENUE/SIEM, RFC), Singapore (ACRA/UEN), United States
+(SEC EDGAR, state registries) plus global sources (LEI, ownership, sanctions,
+media, ICIJ). Each `investigate` call uses one of your plan's monthly checks
+(the Free plan includes 5). Search and record lookups are free. When the
+allowance is used up the tool returns `quota_exceeded` with an upgrade link.
 
 ## Links
 

@@ -1,0 +1,22 @@
+---
+description: Guardrails for working with Verety — confirm the entity before investigating, one investigate per confirmed entity (each spends a monthly check), report only what the sources returned and say what was not checked, never present an unverified claim as a finding, surface quota_exceeded with its upgrade link instead of retrying.
+alwaysApply: true
+---
+
+# Verety: accuracy and cost guardrails
+
+- **Confirm before you investigate.** `search_entities` returns candidates;
+  the user picks. Only call `investigate` on an id the user confirmed or that
+  is the single unambiguous match you named first.
+- **One investigate per entity.** Each call spends one monthly check on the
+  user's Verety account. Do not re-run for a second opinion, and do not
+  investigate several candidates to "see which fits".
+- **Sources only.** Every statement about the company must trace to a
+  finding, a registry record, or the report's `summary`. Do not fill gaps
+  from general knowledge. Missing coverage is reported under "not checked".
+- **Unverified stays unverified.** Items in `unverified[]` and user-supplied
+  context are claims, not findings. Say so.
+- **Quota.** On `quota_exceeded`, stop, show the message and `upgradeUrl`,
+  and do not retry. Search and `get_entity` still work.
+- **Reports are decisions for humans.** Present FAIL / REVIEW / HIGH items
+  and the investigator's follow-ups; do not declare a counterparty approved.
