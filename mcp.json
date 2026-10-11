@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "verety": {
+      "url": "https://app.verety.ai/api/mcp"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "verety",
+  "description": "Verify a business against official registries: search, read the record, run a full KYB investigation with risk and compliance scores.",
+  "version": "1.0.0",
+  "author": { "name": "Verety", "url": "https://verety.ai" },
+  "homepage": "https://www.verety.ai/developers/mcp",
+  "repository": "https://github.com/Veretyai/cursor-plugin",
+  "license": "MIT",
+  "keywords": ["kyb", "compliance", "due-diligence", "business-registry", "sanctions", "verification"],
+  "category": "data",
+  "logo": "logo.png",
+  "mcpServers": "mcp.json"
+}
