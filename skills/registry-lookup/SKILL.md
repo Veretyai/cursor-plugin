@@ -3,10 +3,10 @@ name: registry-lookup
 description: >-
   Use when the user needs the raw registry record for a company —
   registration number, legal name, status, address, officers, capital —
-  without a full investigation. Uses search_entities then get_entity. Covers
-  Brazil (CNPJ), Mexico (DENUE/SIEM, RFC), Singapore (ACRA/UEN), United
-  States (SEC EDGAR, state registries), and global sources (LEI, ownership,
-  sanctions, ICIJ).
+  without a full investigation. Uses search_entities then get_entity. The
+  covered countries are listed in the server's instructions and at
+  verety.ai/developers/mcp; global sources (LEI, ownership, sanctions, ICIJ)
+  apply everywhere.
 ---
 
 # Registry lookup
@@ -25,6 +25,9 @@ Notes:
 - Search and record lookups do not spend a monthly check.
 - The record shape differs per registry (`detail` is registry-native). Do
   not normalise fields the registry does not provide.
-- Some directory-style sources (e.g. Mexico's DENUE) return a listing, not a
-  legal record; if `get_entity` reports `unknown_id`, say the source has no
-  detail record and offer `investigate` instead.
+- If `search_entities` returns `note: "country_not_supported"`, tell the user
+  that country is not covered yet and list `supportedCountries` from the
+  response. Do not retry with other spellings.
+- Some directory-style sources return a listing, not a legal record; if
+  `get_entity` reports `unknown_id`, say the source has no detail record and
+  offer `investigate` instead.

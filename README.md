@@ -3,7 +3,7 @@
 KYB and counterparty due diligence inside Cursor. The plugin connects
 Cursor's agent to Verety's MCP server, which searches official business
 registries, returns the registry record, and runs a full investigation —
-registry, domain, sanctions and media checks — into findings with risk and
+registry, domain, sanctions and ownership checks — into findings with risk and
 compliance scores.
 
 ## What you get
@@ -56,9 +56,10 @@ Settings → MCP:
 
 ## Coverage and allowance
 
-Brazil (CNPJ), Mexico (DENUE/SIEM, RFC), Singapore (ACRA/UEN), United States
-(SEC EDGAR, state registries) plus global sources (LEI, ownership, sanctions,
-media, ICIJ). Each `investigate` call uses one of your plan's monthly checks
+The live list of covered countries is on the docs page:
+https://www.verety.ai/developers/mcp#coverage. Global sources (LEI, ownership,
+sanctions, ICIJ) apply to every company. A search in a country that is not
+covered yet says so instead of returning nothing. Each `investigate` call uses one of your plan's monthly checks
 (the Free plan includes 5). Search and record lookups are free. When the
 allowance is used up the tool returns `quota_exceeded` with an upgrade link.
 

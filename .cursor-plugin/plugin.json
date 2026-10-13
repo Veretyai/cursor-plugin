@@ -1,7 +1,7 @@
 {
   "name": "verety",
   "displayName": "Verety",
-  "description": "KYB and counterparty due diligence inside Cursor. Verify any company against official business registries, sanctions and media, and get findings with risk and compliance scores.",
+  "description": "KYB and counterparty due diligence inside Cursor. Verify a company against official business registries, sanctions and ownership sources, and get findings with risk and compliance scores. Covered countries: see verety.ai/developers/mcp.",
   "version": "1.0.0",
   "author": { "name": "Verety", "email": "legal@verety.ai", "url": "https://verety.ai" },
   "homepage": "https://www.verety.ai/developers/mcp",
