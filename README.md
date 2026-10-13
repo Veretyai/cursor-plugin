@@ -20,9 +20,6 @@ compliance scores.
 `read-kyb-report` (what the scores and findings mean, what needs a human),
 `registry-lookup` (the raw record, by country).
 
-**Commands** — `/verify` (end to end), `/screen` (registry record only, no
-check spent), `/onboarding-checklist` (turn a report into a ticket).
-
 **Rule** — `verety-accuracy`: confirm the entity before investigating, one
 investigation per entity, sources only, never declare a counterparty
 approved.
@@ -49,10 +46,10 @@ Settings → MCP:
 
 ## Try it
 
-- `/verify Grupo Bimbo, Mexico`
+- "Verify Grupo Bimbo in Mexico with Verety."
 - "Find Petrobras in Brazil and show me the registry record."
 - "Investigate the first one, we are onboarding them as a supplier."
-- `/onboarding-checklist`
+- "Turn this report into an onboarding checklist."
 
 ## Coverage and allowance
 

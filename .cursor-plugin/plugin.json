@@ -13,6 +13,5 @@
   "tags": ["kyb", "compliance", "due-diligence", "mcp"],
   "mcpServers": "./mcp.json",
   "skills": "./skills/",
-  "rules": "./rules/",
-  "commands": "./commands/"
+  "rules": "./rules/"
 }
